@@ -1,0 +1,179 @@
+/* The company's original night photograph carries the About page. */
+.origin-cover {
+  display: grid;
+  align-items: end;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(300px, 31vw, 490px);
+  background: #162a22;
+  color: #fff9ec;
+}
+.origin-cover > img,
+.origin-cover::after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.origin-cover > img {
+  object-fit: cover;
+  object-position: 55% 47%;
+}
+.origin-cover::after {
+  content: '';
+  background: linear-gradient(90deg, #13231df2 0%, #14231cb5 36%, transparent 80%),
+              linear-gradient(0deg, #101c17a6, transparent 70%);
+}
+.origin-title { padding-block: clamp(2rem, 5vw, 5rem); }
+.origin-title .kicker { color: #ffe8c7; }
+.origin-title h1 { max-width: 11ch; }
+.origin-title em { color: #ffca9a; font-weight: inherit; }
+.origin-story,
+.origin-spread {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(2rem, 8vw, 9rem);
+  padding-block: clamp(3rem, 6vw, 6.25rem);
+}
+.origin-copy p:first-child {
+  font: 400 clamp(1.35rem, 2vw, 2rem)/1.34 Georgia, serif;
+  letter-spacing: -.025em;
+}
+.origin-copy p + p { margin-top: 1.15rem; }
+.origin-brands {
+  background: linear-gradient(115deg, #f3ebd9, #ecf0dd 72%, #e9eddb);
+  border-block: 1px solid #d9d9c8;
+}
+.origin-print {
+  justify-self: center;
+  width: min(90%, 390px);
+  padding: .75rem .75rem 0;
+  border: 1px solid #d6d1c1;
+  background: #fffdf7;
+  box-shadow: 1px 2px 2px #584a3512, 3px 14px 25px #584a3521;
+  transform: perspective(850px) rotateY(4deg) rotate(-2.5deg);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.origin-print img {
+  width: 100%;
+  aspect-ratio: 1.1;
+  object-fit: cover;
+}
+.origin-print span { display: block; padding: .9rem .15rem; font-size: 1rem; font-weight: 650; }
+.origin-spread h2 { max-width: 14ch; }
+.brand-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  margin: 1.7rem 0;
+  list-style: none;
+  column-gap: 1.4rem;
+}
+.brand-list li {
+  padding: .62rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #bcc6b0;
+}
+.editorial-link { font-weight: 600; text-decoration: underline; text-underline-offset: .25em; }
+.editorial-link:hover { color: #804324; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .origin-print:is(:hover, :focus-visible) {
+    transform: perspective(850px) rotateY(-3deg) rotate(.5deg) translateY(-4px);
+    box-shadow: 3px 19px 31px #584a352d;
+  }
+}
+
+/* A letter and address card sit side-by-side on the contact desk. */
+.correspondence {
+  background: radial-gradient(ellipse at 5% 12%, #f9e5ce, transparent 54%), #f7f4e9;
+}
+.correspondence-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  grid-template-areas: "intro form" "office form";
+  grid-template-rows: auto 1fr;
+  gap: 2rem clamp(2rem, 7vw, 7rem);
+  padding-block: clamp(2.5rem, 6vw, 6.5rem);
+}
+.letter-intro { grid-area: intro; }
+.letter-intro h1 em { font-weight: inherit; color: #a1482e; }
+.letter-intro p { margin: 1rem 0; max-width: 36ch; font-size: 1.14rem; }
+.letter-intro .editorial-link { overflow-wrap: anywhere; }
+.letter-jump { display: none; }
+.office-card {
+  grid-area: office;
+  align-self: start;
+  border-block: 1px solid #bebba9;
+  display: grid;
+  grid-template-columns: minmax(100px, .8fr) minmax(0, 1.2fr);
+  gap: 1.1rem;
+  align-items: center;
+  padding-block: 1.4rem;
+}
+.office-art img { display: block; width: 100%; border-radius: 3px; }
+.office-details h2 { font-size: clamp(1.65rem, 2.2vw, 2.5rem); }
+.office-details address { font-style: normal; margin: .7rem 0; }
+.letter-form {
+  grid-area: form;
+  align-self: start;
+  display: grid;
+  gap: 1.15rem;
+  background: #fffdf6;
+  padding: clamp(1.25rem, 3.4vw, 3.5rem);
+  border: 1px solid #d7d5c6;
+  border-top: 4px solid #214e41;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px #3c442413;
+}
+.letter-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .55rem 1rem;
+  border-bottom: 1px solid #dddccf;
+  padding-bottom: 1.15rem;
+}
+.letter-heading h2 { font-size: clamp(2.1rem, 3.2vw, 3.5rem); }
+.letter-heading p { color: #49554e; font-size: .95rem; }
+.letter-form input, .letter-form textarea, .letter-form select {
+  border-color: #919b8d;
+  border-radius: 4px;
+  background-color: #fffcf5;
+  transition: background-color .2s, border-color .2s;
+}
+.letter-form :is(input, textarea, select):focus {
+  background-color: white;
+  outline: 2px solid #305e4b;
+  outline-offset: 1px;
+}
+.letter-form textarea { resize: vertical; min-height: 7rem; }
+.letter-form .button { justify-self: start; }
+.letter-form [role=status]:empty { display: none; }
+@media (max-width: 840px) {
+  .office-card { grid-template-columns: 1fr; }
+  .office-art { max-width: 180px; }
+}
+@media (max-width: 700px) {
+  .origin-title { padding-block: 2.5rem; }
+  .origin-cover { min-height: 280px; }
+  .origin-story, .origin-spread { grid-template-columns: 1fr; }
+  .origin-spread { gap: 2.5rem; }
+  .origin-print { width: min(85%, 350px); }
+  .correspondence-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "form" "office";
+    grid-template-rows: auto;
+  }
+  .letter-jump { display: flex; width: fit-content; margin-top: 1.2rem; }
+  .office-card { grid-template-columns: minmax(85px, .55fr) minmax(0, 1fr); }
+}
+@media (max-width: 400px) {
+  .origin-cover h1 { font-size: 3.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .origin-print { transform: none; }
+}
